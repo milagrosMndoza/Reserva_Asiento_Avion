@@ -21,8 +21,7 @@ function redirect(event) {
 		console.log(celdaPress.style.backgroundColor)
 	}
 }
-
-function buscar() {
+$("#buscar").click(function () {
 	var buscardni = document.getElementById("buscarDni").value;
 	for (var i = 0; i < asientos.length; i++) {
 		if (asientos[i] != undefined) {
@@ -36,7 +35,7 @@ function buscar() {
 			}
 		}
 	}
-}
+});
 $("#reservar").click(function () {
 	if ((numAsiento == -1) || document.getElementById("nombre").value == "" || document.getElementById("apellido").value == "" || document.getElementById("dni").value == "") {
 		swal('Oops...', 'Selecione primero un asiento y complete todos los campos!', 'error');
@@ -61,9 +60,7 @@ $("#reservar").click(function () {
 	}
 	limpiar();
 });
-//function reservar() {
-//}
-function listar() {
+$("#listar").click(function () {
 	var html = " ";
 	var enlistando = document.getElementById("enlistando");
 	html = "<h2>Lista de asientos reservados:</h2>" + "<table width=300; border=2>";
@@ -79,9 +76,8 @@ function listar() {
 	enlistando.innerHTML = html;
 	html += "</table><br><br>"
 	limpiar();
-}
-
-function cancelar() {
+});
+$("#cancelar").click(function () {
 	console.log(numAsiento)
 	if ((numAsiento == -1) || document.getElementById("nombre").value == "" || document.getElementById("apellido").value == "" || document.getElementById("dni").value == "") {
 		swal('Oops...', 'Seleccione primero el asiento que quiere cancelar!', 'error');
@@ -97,7 +93,7 @@ function cancelar() {
 		});
 	}
 	limpiar();
-}
+});
 
 function limpiar() {
 	document.getElementById("mostrar").textContent = "";
