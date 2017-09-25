@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
-@import url('https://fonts.googleapis.com/css?family=Aladin|Lobster');
+
 * {
 	font-family: 'El Messiri', Helvetica, Arial, sans-serif;
 }
@@ -129,6 +128,10 @@ a:active,
 .bg-color h2 small {
 	color: #fff;
 }
+.small, small{
+	font-size: 100% !important;
+}
+
 
 ul {
 	list-style: none;
@@ -166,11 +169,16 @@ menu {
 footer {
 	padding-bottom: 1%;
 	background-color: rgba(40, 152, 221, 0.63);
+	text-align: center;
+	padding-left: 5%;
 }
 
 #socialicons {
 	width: 75%;
 	margin: 0 auto;
+	/* overflow:  auto; */
+	position: center center;
+	text-align: center;
 }
 
 .socialicon {
@@ -182,6 +190,7 @@ footer {
 	position: relative;
 	float: left;
 	margin: 0px 0px 10px 10px;
+	text-align: center;
 }
 
 .socialiconcircle1 {
