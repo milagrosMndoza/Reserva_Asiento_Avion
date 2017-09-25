@@ -31,42 +31,38 @@ function buscar() {
 				document.getElementById("nombre").value = asientos[i].nombre;
 				document.getElementById("apellido").value = asientos[i].apellido;
 				document.getElementById("dni").value = asientos[i].dni;
+			} else {
+				swal('Oops...', 'No se ha encontrado ese numero de DNI!', 'error');
 			}
 		}
 	}
 }
-
-function reservar() {
-	if (numAsiento == -1) {
-		swal(
-			'Oops...',
-			'Selecione primero un asiento!',
-			'error'
-		);
-	}
-	else {
+$("#reservar").click(function () {
+	if ((numAsiento == -1) || document.getElementById("nombre").value == "" || document.getElementById("apellido").value == "" || document.getElementById("dni").value == "") {
+		swal('Oops...', 'Selecione primero un asiento y complete todos los campos!', 'error');
+	} else {
 		var nom = document.getElementById("nombre").value;
 		var ape = document.getElementById("apellido").value;
 		var doc = document.getElementById("dni").value;
 		var pasajero = {
-			nombre: nom
-			, apellido: ape
-			, dni: doc
+			nombre: nom,
+			apellido: ape,
+			dni: doc
 		};
-		// alert("Asiento N° " + numAsiento + "\n" + "Pasajero: " + pasajero.nombre + " " + pasajero.apellido + "\n" + "Registrado correctamente!");
-		swal(
-			'Registrado!',
-			("Asiento N° " + numAsiento + "\n" + "Pasajero: " + pasajero.nombre + " " + pasajero.apellido + "\n" + "Registrado correctamente!"),
-			'success'
-		  );
+		swal({
+			title: "Registrado!",
+			text: "Asiento N° " + numAsiento + "\n" + "Pasajero: " + pasajero.nombre + " " + pasajero.apellido + "\n" + "DNI: " + pasajero.dni,
+			type: "success"
+		});
 		asientos[numAsiento - 1] = pasajero;
 		celdaPress.style.backgroundColor = "red";
 		//numAsiento=-1;
 		console.log(asientos)
 	}
 	limpiar();
-}
-
+});
+//function reservar() {
+//}
 function listar() {
 	var html = " ";
 	var enlistando = document.getElementById("enlistando");
@@ -87,19 +83,18 @@ function listar() {
 
 function cancelar() {
 	console.log(numAsiento)
-	if (numAsiento == -1) {
-		swal(
-			'Oops...',
-			'Seleccione primero el asiento que quiere cancelar!',
-			'error'
-		);
-	}
-	else if (celdaPress.style.backgroundColor == "red") {
+	if ((numAsiento == -1) || document.getElementById("nombre").value == "" || document.getElementById("apellido").value == "" || document.getElementById("dni").value == "") {
+		swal('Oops...', 'Seleccione primero el asiento que quiere cancelar!', 'error');
+	} else if (celdaPress.style.backgroundColor == "red") {
 		//asientos.splice((numAsiento-1), 1);
 		console.log(asientos)
 		asientos[numAsiento - 1] = undefined;
 		celdaPress.style.backgroundColor = "transparent";
-		alert("El asiento ha sido cancelado");
+		swal({
+			title: "Cancelado!",
+			text: "El asiento ha sido cancelado",
+			type: "success"
+		});
 	}
 	limpiar();
 }

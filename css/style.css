@@ -32,10 +32,6 @@ form {
 	z-index: 100000000000000;
 }
 
-.tablita {
-	background-image: url(../img/avion.png);
-}
-
 #fondoTabla {
 	top: 100px;
 	margin: auto 0;
