@@ -17,12 +17,17 @@ class Areolinea {
 		}
 		var celdas = document.getElementsByTagName("td");
 		for (var i = 0; i < celdas.length; i++) {
-			celdas[i].addEventListener("click", this.redirect, false);
+			celdas[i].addEventListener("click",  this.redirect, false);
 			this.limpiar();
 		}
+		this.btn();
+	}
+	btn (){
+		document.getElementById('reservar').onclick = () => this.reservar;
 	}
 	redirect(event) {
-		$("#mostrar").append(parseInt(event.target.textContent)); 
+		console.log(event);
+		document.getElementById("mostrar").innerHTML = (event.target.textContent);
 		this.celdaPress = event.target;
 		this.numAsiento = event.target.textContent;
 		if (this.celdaPress.style.backgroundColor == "red") {
@@ -46,6 +51,7 @@ class Areolinea {
 		}
 	}
 	reservar() {
+		console.log('der')
 		if (this.numAsiento == -1) {
 			alert("Seleccione primero un asiento");
 		} else {
@@ -104,12 +110,10 @@ class Areolinea {
 	}
 }
 let ejecuta = new Areolinea();
-ejecuta.redirect();
 ejecuta.dibuja();
-ejecuta.buscar();
-ejecuta.listar();
-ejecuta.reservar();
-ejecuta.cancelar();
-ejecuta.limpiar();
-
-
+/*ejecuta.redirect();*/
+// ejecuta.buscar();
+// ejecuta.listar();
+// ejecuta.reservar();
+// ejecuta.cancelar();
+// ejecuta.limpiar();
