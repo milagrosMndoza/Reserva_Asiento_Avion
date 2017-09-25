@@ -20,10 +20,9 @@
 
 <body>
 	<script>
-		$(document).ready(function() {
+		$(document).ready(function () {
 			$('[data-toggle="tooltip"]').tooltip();
 		});
-
 	</script>
 	<menu>
 		<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -32,8 +31,7 @@
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
 					<a class="navbar-brand" href="#">
-						<h1>Aerlines Airbus</h1>
-					</a>
+						<h1>Aerlines Airbus</h1> </a>
 				</div>
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
@@ -121,7 +119,7 @@
 				<div id="contenedor1">
 					<br>
 					<p>
-						<input type="text" id="buscarDni" placeholder="Escribe el DNI a buscar" required> <abbr title="Buscará el DNI para saber si ya ha reservado su asiento"><button  type="button" class="btn btn-primary" onclick="buscar()" >Buscar DNI <span class="glyphicon glyphicon-search"></span></button></abbr> </p>
+						<input type="text" id="buscar" placeholder="Escribe el DNI a buscar" required=""> <abbr title="Buscará el DNI para saber si ya ha reservado su asiento"><button  type="button" class="btn btn-primary" id="buscarDni" >Buscar DNI <span class="glyphicon glyphicon-search"></span></button></abbr> </p>
 					<h2><b>N° de asiento seleccionado:</b>
 						<div id="mostrar"></div>
 					</h2>
@@ -137,10 +135,10 @@
 					<!--boton reservar--><abbr title="Reservará el asiento con los datos que estas llenando">
 				  <button  type="button" id="reservar"  class="btn btn-info btn-lg">Reservar Asiento <span class="glyphicon glyphicon-ok-circle"></span></button>  </abbr>
 					<!--boton cancelar--><abbr title="Cancelará el asiento que ya ha había sido reservado">
-				<button id="btnCancelar" type="reset" onclick="cancelar()" class="btn btn-info btn-lg">Cancelar Asiento <span class="glyphicon glyphicon-remove-sign"></span></button></abbr> </div>
+				<button id="cancelar" type="reset"  class="btn btn-info btn-lg">Cancelar Asiento <span class="glyphicon glyphicon-remove-sign"></span></button></abbr> </div>
 				<!--boton listar-->
 				<br> <abbr title="Mostrará la lista con los datos de todos los asientos reservados">
-				<button id="listar"  class="btn btn-info btn-lg" type="button" onclick="listar()">Listar <span class="glyphicon glyphicon-list"></span></button></abbr>
+				<button id="listar"  class=	"btn btn-info btn-lg" type="button" >Listar <span class="glyphicon glyphicon-list"></span></button></abbr>
 				<br>
 				<div id="enlistando"></div>
 				<br> </form>
