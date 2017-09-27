@@ -13,6 +13,7 @@ class Aerolinea {
 		//this.inicio()
 	}
 	inicio() {
+		$('[data-toggle="tooltip"]').tooltip();
 		/** llenar asientos */
 		for (let i = 0; i < this.asientos.length; i++) {
 			this.asientos[i] = undefined;
@@ -25,7 +26,6 @@ class Aerolinea {
 		$("#cancelar").click(() => this.cancelar());
 	}
 	redirect(event) {
-		console.log(event)
 		this.limpiar();
 		$("#enlistando").empty();
 		$("#mostrar").val(event.target.textContent);
@@ -54,20 +54,19 @@ class Aerolinea {
 	reservar() {
 		if ((this.numAsiento == -1) || $("#nombre").val() == "" || $("#apellido").val() == "" || $("#dni").val() == "") {
 			swal('Oops...', 'Selecione primero un asiento y complete todos los campos!', 'error');
-		}
-		else {
+		} else {
 			let nom = $("#nombre").val();
 			let ape = $("#apellido").val();
 			let doc = $("#dni").val();
 			let pasajero = {
-				nombre: nom
-				, apellido: ape
-				, dni: doc
+				nombre: nom,
+				apellido: ape,
+				dni: doc
 			};
 			swal({
-				title: "Registrado!"
-				, text: "Asiento N° " + this.numAsiento + "\n" + "Pasajero: " + pasajero.nombre + " " + pasajero.apellido + "\n" + "DNI: " + pasajero.dni
-				, type: "success"
+				title: "Registrado!",
+				text: "Asiento N° " + this.numAsiento + "\n" + "Pasajero: " + pasajero.nombre + " " + pasajero.apellido + "\n" + "DNI: " + pasajero.dni,
+				type: "success"
 			});
 			this.asientos[this.numAsiento - 1] = pasajero;
 			this.celdaPress.style.backgroundColor = "red";
@@ -96,16 +95,15 @@ class Aerolinea {
 		console.log(this.numAsiento)
 		if ((this.numAsiento == -1) || $("#nombre").val() == "" || $("#apellido").val() == "" || $("#dni").val() == "") {
 			swal('Oops...', 'Seleccione primero el asiento que quiere cancelar!', 'error');
-		}
-		else if (this.celdaPress.style.backgroundColor == "red") {
+		} else if (this.celdaPress.style.backgroundColor == "red") {
 			//asientos.splice((this.numAsiento - 1), 1);
 			console.log(this.asientos)
 			this.asientos[this.numAsiento - 1] = undefined;
 			this.celdaPress.style.backgroundColor = "transparent";
 			swal({
-				title: "Cancelado!"
-				, text: "El asiento ha sido cancelado"
-				, type: "success"
+				title: "Cancelado!",
+				text: "El asiento ha sido cancelado",
+				type: "success"
 			});
 		}
 		this.limpiar();
@@ -119,4 +117,4 @@ class Aerolinea {
 	}
 }
 let avion = new Aerolinea();
-avion.inicio()
+avion.inicio();

@@ -1,5 +1,6 @@
 * {
 	font-family: 'El Messiri', Helvetica, Arial, sans-serif;
+	margin: auto 0;
 }
 
 body {
@@ -14,12 +15,19 @@ body {
 }
 
 td {
-	border-radius: 5px 5px;
+	border-radius: 5px;
 }
 
 form {
 	background: rgba(163, 215, 230, 0.72);
 	border-radius: 2px;
+}
+
+#enlistando {
+	text-align: center;
+	padding-left: 15%;
+	border-radius: 5px;
+	border-color: #1d61e2;
 }
 
 .table {
